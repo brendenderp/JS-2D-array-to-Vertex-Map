@@ -2,8 +2,11 @@
 Used to convert a 2d Array[][] to a vertex map of its outline.
 
 This was developed specifically with Matterjs in mind.
+
 <img width="422" alt="image" src="https://github.com/brendenderp/JS-2D-array-to-Vertex-Map/assets/29009423/02ba0eb3-3e5f-43a3-b153-adc55b3b44f5">
 <img width="422" alt="image" src="https://github.com/brendenderp/JS-2D-array-to-Vertex-Map/assets/29009423/efcd3ca8-9aeb-41b2-bf0c-b734d32b3cfb">
+<img width="422" alt="image" src="https://github.com/brendenderp/JS-2D-array-to-Vertex-Map/assets/29009423/0ad42cad-cca1-40af-bcd3-bf41d8a5d9b5">
+<img width="422" alt="image" src="https://github.com/brendenderp/JS-2D-array-to-Vertex-Map/assets/29009423/a046a227-61b4-4952-818b-eebd4623bdaa">
 
 first we start with our test array. 
 ```
