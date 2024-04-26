@@ -17,16 +17,17 @@ newarray =getOuterSquares(newarray);
 logArray(newarray);
 
 console.log("--------Start Converting to vertexmap--------");
-ArraytoVertexMap(newarray);
+//(inputArray,Scalefactor for output);
+ArraytoVertexMap(newarray,1);
 
 
 
 
 
 
-function ArraytoVertexMap(startArray){
+function ArraytoVertexMap(startArray,scale){
 
-inputArray = startArray; // want to leave the original untouched.
+var inputArray = startArray; // want to leave the original untouched.
 console.log(inputArray)
 
 //    inputArray[y][x] 
@@ -36,6 +37,8 @@ var startX = inputArray[0].length/2;
 
 var startY;
 for (let index = 0; index < inputArray.length; index++) {
+
+
 
     const element = inputArray[index][startX];
     console.log(element);
@@ -47,7 +50,7 @@ for (let index = 0; index < inputArray.length; index++) {
 console.log("Starting Position is X: ",startX," Y: ",startY );
 
 //our output vert table
-var OutputVertTable = []; 
+var OutputVertTable=""; 
 
 //The position we are currently looking at in the input array
 var currentPos ={
@@ -65,32 +68,54 @@ var MoveTable = {
 };
 
 //check all 7 dirrections
-for (let index = 0; index < 7; index++) {
+var loops=0;
+for (let index = 0; index < 8; index++) {
     
     //example. Given our current position look at the side pulled from the move table.
    // inputArray[   currentPos.x+MoveTable.y[index]    ]    [    currentPos.y+MoveTable.x[index]    ]
-
+    loops++;
 
     if(inputArray[currentPos.y+MoveTable.Check.y[index]    ]    [    currentPos.x+MoveTable.Check.x[index]    ] !== 0   )
     {
         console.log("End position at "+index*45);
         console.log((currentPos.x+MoveTable.Check.x[index])+" "+(currentPos.y+MoveTable.Check.y[index]));
         inputArray[currentPos.y][currentPos.x] = 0
-        logArray(inputArray);
-        OutputVertTable.push(currentPos.x+" "+currentPos.y);
+        
+        OutputVertTable +=currentPos.x*scale+" "+currentPos.y*scale+" ";
         currentPos.x = currentPos.x+MoveTable.Check.x[index];
         currentPos.y = currentPos.y+MoveTable.Check.y[index];
-        //set to -1 because it will be incremented next loop
-       index =-1;
+        inputArray[currentPos.y][currentPos.x] = 5;
+        logArray(inputArray);
+
+        //set to -3 because it will be incremented next loop to -2 and we want to check the 90
+       index = index-3;
+
+
+       loops=0;
     }
+    else{
+        console.log("nothing at "+index*45);
+        console.log((currentPos.x+MoveTable.Check.x[index])+" "+(currentPos.y+MoveTable.Check.y[index]));
+        
+
+         }
 
 
 
+if(index<-1){
+    index+=8;
+}
+if (index==7){
+    index=-1;
+    console.log("index is 7 reseting to 0");
+}
+if(loops>=8)
+{
+console.log("Stuck Probably done");
+break;
 }
 
-
-OutputVertTable.push(currentPos.x+" "+currentPos.y);
-console.log(OutputVertTable);
+console.log("index "+index+"Loops "+loops);
 }
 
 
