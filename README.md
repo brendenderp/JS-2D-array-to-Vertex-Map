@@ -57,7 +57,7 @@ Recursively runs though the array clockwise removing any already visited spot, t
 ]
 ```
 
-All together the console log of the functions looks like.
+All the functions look like...
 
 ```
 logArray(testArray);
@@ -72,6 +72,7 @@ ArraytoVertexMap(newarray);
 
 
 ```
+and the console log of the entire program is...
 
 ```
 Time to get func-ey
